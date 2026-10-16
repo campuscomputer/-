@@ -199,14 +199,14 @@ footer{background:#09152d;color:#dbeafe;padding:28px 0}
         <div class="contact-line"><div class="contact-symbol">🕘</div><div><strong>ক্লাসের সময়</strong><small>এখানে ক্লাসের সময়সূচি যোগ করুন</small></div></div>
       </div>
       <form class="contact-form" id="contactForm">
-        <h3>তথ্য জানতে ফর্ম পূরণ করুন</h3><p>এটি একটি নমুনা ফর্ম। কার্যকরভাবে বার্তা পাঠাতে ইমেইল/সার্ভার সংযোগ প্রয়োজন।</p>
+        <h3>তথ্য জানতে ফর্ম পূরণ করুন</h3><p>কোর্স, ভর্তি বা পরামর্শ সম্পর্কে জানতে ফর্মটি পূরণ করুন।</p>
         <div class="form-grid">
-          <div class="field"><label for="name">আপনার নাম</label><input id="name" name="name" required placeholder="নাম লিখুন"></div>
-          <div class="field"><label for="phone">মোবাইল নম্বর</label><input id="phone" name="phone" required inputmode="tel" placeholder="01XXXXXXXXX"></div>
+          <div class="field"><label for="name">আপনার নাম</label><input id="name" name="name" required maxlength="120" autocomplete="name" placeholder="নাম লিখুন"></div>
+          <div class="field"><label for="phone">মোবাইল নম্বর</label><input id="phone" name="phone" required maxlength="30" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX"></div>
           <div class="field full"><label for="course">যে কোর্সে আগ্রহী</label><select id="course" name="course" required><option value="">কোর্স নির্বাচন করুন</option><option>কম্পিউটার বেসিক</option><option>অফিস অ্যাপ্লিকেশন</option><option>বাংলা ও ইংরেজি টাইপিং</option><option>গ্রাফিক ডিজাইন</option><option>ইন্টারনেট ও অনলাইন কাজ</option><option>ওয়েব ডিজাইন</option><option>অন্যান্য</option></select></div>
-          <div class="field full"><label for="message">আপনার বার্তা (ঐচ্ছিক)</label><textarea id="message" name="message" placeholder="আপনার প্রশ্ন লিখুন..."></textarea></div>
-          <div class="field full"><button class="btn" type="submit">তথ্য জমা দিন ↗</button></div>
-        </div><div class="form-note">নোট: ফর্মটি বর্তমানে ডেমো মোডে আছে; তথ্য কোথাও পাঠানো হবে না।</div>
+          <div class="field full"><label for="message">আপনার বার্তা (ঐচ্ছিক)</label><textarea id="message" name="message" maxlength="2000" placeholder="আপনার প্রশ্ন লিখুন..."></textarea></div>
+          <div class="field full"><button class="btn" id="submitButton" type="submit">তথ্য জমা দিন ↗</button></div>
+        </div><div class="form-note" id="formStatus" role="status" aria-live="polite">ফর্ম পাঠানোর আগে Apps Script Web App URL কোডে বসিয়ে Deploy করতে হবে।</div>
       </form>
     </div>
   </div>
@@ -221,7 +221,44 @@ menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('o
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
 document.getElementById('year').textContent=new Date().getFullYear();
 const form=document.getElementById('contactForm'),toast=document.getElementById('toast');
-form.addEventListener('submit',e=>{e.preventDefault();toast.textContent='ধন্যবাদ! এটি ডেমো ফর্ম—আপনার তথ্য পাঠানো হয়নি। প্রকাশের আগে ফর্মের সঙ্গে ইমেইল বা সার্ভার সংযোগ করুন।';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),5000);form.reset();});
+const formStatus=document.getElementById('formStatus');
+const submitButton=document.getElementById('submitButton');
+// Apps Script deploy করার পর Web app URL-টি নিচের কোটেশনের ভিতরে বসান।
+const GOOGLE_APPS_SCRIPT_URL='PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!form.reportValidity()) return;
+  if(!GOOGLE_APPS_SCRIPT_URL.startsWith('https://script.google.com/macros/s/')){
+    formStatus.textContent='ফর্ম চালু করতে হলে আগে Google Apps Script Web App URL কোডে বসিয়ে HTML ফাইলটি আবার GitHub-এ আপলোড করুন।';
+    formStatus.style.color='#b91c1c';
+    return;
+  }
+  submitButton.disabled=true;
+  submitButton.style.opacity='.65';
+  formStatus.style.color='';
+  formStatus.textContent='তথ্য পাঠানো হচ্ছে…';
+  try{
+    const payload=new URLSearchParams();
+    payload.set('name',form.elements.name.value.trim());
+    payload.set('phone',form.elements.phone.value.trim());
+    payload.set('course',form.elements.course.value);
+    payload.set('message',form.elements.message.value.trim());
+    // no-cors ব্যবহার করা হচ্ছে; ব্রাউজার সার্ভারের উত্তর পড়তে পারে না,
+    // তাই সফলতা নিশ্চিত করতে Google Sheet-এ নতুন সারিটি যাচাই করুন।
+    await fetch(GOOGLE_APPS_SCRIPT_URL,{method:'POST',mode:'no-cors',body:payload});
+    form.reset();
+    formStatus.textContent='তথ্য পাঠানোর অনুরোধ করা হয়েছে। Google Sheets-এ নতুন সারি এসেছে কি না যাচাই করুন।';
+    toast.textContent='ধন্যবাদ! আপনার তথ্য পাঠানোর অনুরোধ করা হয়েছে।';
+    toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),5000);
+  }catch(err){
+    formStatus.textContent='তথ্য পাঠানো যায়নি। ইন্টারনেট সংযোগ ও Apps Script URL পরীক্ষা করে আবার চেষ্টা করুন।';
+    formStatus.style.color='#b91c1c';
+  }finally{
+    submitButton.disabled=false;
+    submitButton.style.opacity='1';
+  }
+});
 </script>
 </body>
 </html>
