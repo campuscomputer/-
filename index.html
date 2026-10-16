@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ক্যাম্পাস কম্পিউটার প্রশিক্ষণ কেন্দ্র, কেশবপুর — কম্পিউটার শিক্ষা ও দক্ষতা উন্নয়ন প্রশিক্ষণ।">
+<title>ক্যাম্পাস কম্পিউটার প্রশিক্ষণ কেন্দ্র | কেশবপুর</title>
+<style>
+:root{--navy:#10244b;--blue:#2563eb;--cyan:#06b6d4;--gold:#fbbf24;--ink:#17233b;--muted:#64748b;--paper:#f5f8ff;--white:#fff;--line:#e4eaf5;--shadow:0 18px 45px rgba(16,36,75,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{margin:0;font-family:"Noto Sans Bengali","Hind Siliguri","SolaimanLipi",system-ui,sans-serif;color:var(--ink);background:#fff;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1140px,92%);margin:auto}
+.topbar{background:#0a1732;color:#dbeafe;font-size:13px;padding:8px 0}
+.topbar .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.topbar span{display:inline-flex;align-items:center;gap:7px}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.logo{width:49px;height:49px;display:grid;place-items:center;border-radius:15px;color:white;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 8px 20px #2563eb35;flex-shrink:0}
+.logo svg{width:29px;height:29px}
+.brand strong{display:block;color:var(--navy);font-size:17px;line-height:1.35}
+.brand small{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+.navlinks{display:flex;align-items:center;gap:23px;font-size:14px;font-weight:700}
+.navlinks a:hover{color:var(--blue)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border:0;border-radius:12px;padding:12px 19px;background:var(--blue);color:white;font-weight:800;box-shadow:0 9px 20px #2563eb30;transition:.2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);background:#1d4ed8}
+.btn.outline{background:#fff;color:var(--navy);border:1px solid #d7e1f3;box-shadow:none}
+.menu-toggle{display:none;background:white;border:1px solid var(--line);border-radius:10px;padding:8px 11px;color:var(--navy);font-size:21px}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 85% 20%,#2563eb35,transparent 28%),linear-gradient(125deg,#0b1733 0%,#102b5c 55%,#075985 100%);color:white;padding:82px 0 76px}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff16;border-radius:50%;pointer-events:none}
+.hero:before{width:470px;height:470px;right:-100px;top:-190px}
+.hero:after{width:340px;height:340px;right:-30px;top:-120px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:45px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff38;background:#ffffff12;border-radius:99px;padding:7px 13px;color:#bfdbfe;font-size:13px;font-weight:700}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 5px #34d39922}
+h1{font-size:clamp(34px,4.5vw,56px);line-height:1.25;margin:20px 0 18px;letter-spacing:-.7px}
+h1 em{font-style:normal;color:#67e8f9}
+.hero p{color:#d4e2fb;font-size:17px;max-width:600px;margin:0 0 27px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn{padding:14px 21px}
+.hero .btn.light{background:#fff;color:var(--navy);box-shadow:none}
+.hero .btn.ghost{background:#ffffff12;border:1px solid #ffffff45;box-shadow:none}
+.hero-note{display:flex;align-items:center;gap:10px;margin-top:27px;color:#cbd5e1;font-size:13px}
+.hero-note b{color:#fff}
+.visual{position:relative;min-height:360px;display:grid;place-items:center}
+.screen{width:min(100%,420px);background:#fff;border-radius:23px;padding:15px;color:var(--ink);box-shadow:0 30px 80px #02061766;transform:rotate(1.5deg)}
+.screen-top{display:flex;gap:6px;padding:4px 5px 13px;border-bottom:1px solid var(--line)}
+.dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1}.dot:first-child{background:#fb7185}.dot:nth-child(2){background:#fbbf24}.dot:nth-child(3){background:#34d399}
+.screen-body{padding:18px 10px 10px}
+.screen-title{font-size:17px;font-weight:900;color:var(--navy)}
+.screen-sub{font-size:11px;color:var(--muted);margin:3px 0 17px}
+.mock-course{display:flex;align-items:center;gap:12px;padding:12px;border-radius:13px;background:#f5f8ff;margin:9px 0}
+.mock-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:21px;background:#dbeafe}
+.mock-course strong{display:block;font-size:13px}.mock-course small{color:var(--muted);font-size:11px}
+.progress{height:6px;border-radius:9px;background:#dbeafe;margin-top:7px;overflow:hidden}.progress span{display:block;height:100%;width:72%;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:9px}
+.float-tag{position:absolute;right:-4px;bottom:23px;background:white;color:var(--navy);padding:13px 16px;border-radius:14px;box-shadow:var(--shadow);font-size:13px;font-weight:800;transform:rotate(-3deg)}
+.float-tag span{display:block;color:var(--muted);font-size:11px;font-weight:500}
+.stats{margin-top:-1px;background:#fff;border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:25px 0}
+.stat{padding:4px 24px;border-right:1px solid var(--line);text-align:center}
+.stat:last-child{border:0}.stat strong{display:block;color:var(--blue);font-size:25px;line-height:1.4}.stat span{font-size:13px;color:var(--muted)}
+section{padding:78px 0}
+.section-head{text-align:center;max-width:700px;margin:0 auto 38px}
+.kicker{color:var(--blue);font-size:13px;font-weight:900;letter-spacing:.5px}
+.section-head h2{font-size:clamp(27px,3.2vw,38px);line-height:1.35;color:var(--navy);margin:8px 0 12px}
+.section-head p{margin:0;color:var(--muted)}
+.courses{background:var(--paper)}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.course-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;transition:.25s;box-shadow:0 5px 18px #10244b06}
+.course-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#c7d8ff}
+.course-icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-size:26px;margin-bottom:17px;background:#e0eaff}
+.course-card:nth-child(2) .course-icon{background:#dcfce7}.course-card:nth-child(3) .course-icon{background:#fef3c7}.course-card:nth-child(4) .course-icon{background:#f3e8ff}.course-card:nth-child(5) .course-icon{background:#cffafe}.course-card:nth-child(6) .course-icon{background:#ffe4e6}
+.course-card h3{margin:0 0 8px;color:var(--navy);font-size:19px}
+.course-card p{color:var(--muted);font-size:14px;margin:0 0 15px}
+.course-link{color:var(--blue);font-size:13px;font-weight:900}
+.course-link span{font-size:18px;vertical-align:-1px;margin-left:4px}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.about-art{position:relative;background:linear-gradient(140deg,#dbeafe,#ecfeff);border-radius:24px;min-height:360px;display:grid;place-items:center;overflow:hidden}
+.about-art:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;border:1px solid #2563eb20}
+.big-computer{position:relative;width:230px;height:155px;background:#12264b;border-radius:14px;padding:10px;box-shadow:0 20px 35px #10244b25}
+.big-screen{height:100%;border-radius:7px;background:linear-gradient(135deg,#2563eb,#06b6d4);display:grid;place-items:center;color:#fff}
+.big-screen svg{width:76px;height:76px}
+.computer-neck{width:42px;height:20px;background:#94a3b8;margin:auto}
+.computer-base{width:100px;height:8px;background:#64748b;border-radius:0 0 7px 7px;margin:auto}
+.art-chip{position:absolute;background:#fff;border-radius:13px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;font-weight:800;color:var(--navy)}
+.art-chip.one{top:35px;left:20px}.art-chip.two{bottom:35px;right:18px}
+.about-copy h2{font-size:clamp(27px,3vw,36px);line-height:1.4;color:var(--navy);margin:9px 0 15px}
+.about-copy p{color:var(--muted)}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:23px 0 27px}
+.feature{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:700}
+.check{flex-shrink:0;width:23px;height:23px;border-radius:8px;background:#dcfce7;color:#15803d;display:grid;place-items:center;font-size:14px}
+.admission{padding:0 0 78px}
+.admission-box{background:linear-gradient(115deg,#1d4ed8,#0891b2);color:#fff;border-radius:24px;padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;overflow:hidden}
+.admission-box:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff25;border-radius:50%;right:20%;top:-160px}
+.admission-box h2{font-size:clamp(24px,3vw,34px);margin:0 0 8px;line-height:1.4;position:relative;z-index:1}
+.admission-box p{margin:0;color:#dbeafe;position:relative;z-index:1}
+.admission-box .btn{background:white;color:var(--navy);box-shadow:none;white-space:nowrap;position:relative;z-index:1}
+.contact{background:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px}
+.contact-info{background:var(--navy);color:white;padding:30px;border-radius:20px}
+.contact-info h3{font-size:23px;margin:0 0 10px}
+.contact-info>p{color:#cbd5e1;font-size:14px;margin:0 0 25px}
+.contact-line{display:flex;gap:13px;align-items:flex-start;margin:20px 0}
+.contact-symbol{width:42px;height:42px;flex-shrink:0;border-radius:12px;background:#ffffff15;display:grid;place-items:center;font-size:19px}
+.contact-line strong{display:block;font-size:14px}.contact-line small{color:#cbd5e1;font-size:13px}
+.contact-form{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px}
+.contact-form h3{color:var(--navy);margin:0 0 5px;font-size:22px}
+.contact-form>p{color:var(--muted);font-size:14px;margin:0 0 20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}
+.field label{font-size:13px;font-weight:800;color:#334155}
+.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #dbe3ef;border-radius:10px;background:#fbfdff;font:inherit;font-size:14px;color:var(--ink);outline:none}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #2563eb15}
+.field textarea{min-height:95px;resize:vertical}
+.form-note{font-size:12px;color:var(--muted);margin:12px 0 0}
+footer{background:#09152d;color:#dbeafe;padding:28px 0}
+.footer-row{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.footer-brand{font-weight:900;color:#fff}.footer-small{font-size:12px;color:#9fb0cf}
+.footer-links{display:flex;gap:18px;font-size:13px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,120px);background:#10244b;color:white;padding:13px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:40;transition:.3s;max-width:90%;font-size:14px}
+.toast.show{transform:translate(-50%,0)}
+@media(max-width:900px){.navlinks{gap:14px}.navlinks a{font-size:13px}.hero-grid{gap:20px}.course-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:28px}.contact-grid{grid-template-columns:1fr 1.1fr}}
+@media(max-width:720px){.topbar .container{justify-content:center}.topbar span:last-child{display:none}.nav{min-height:70px}.menu-toggle{display:block}.navlinks{display:none;position:absolute;top:70px;left:0;right:0;background:white;padding:18px 5% 22px;border-bottom:1px solid var(--line);box-shadow:0 12px 20px #10244b10;flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:11px 0;border-bottom:1px solid #f0f3f8;font-size:14px}.navlinks a:last-child{border:0}.navlinks .btn{margin-top:12px}.hero{padding:58px 0 50px}.hero-grid{grid-template-columns:1fr}.hero p{font-size:15px}.visual{min-height:300px;margin-top:8px}.screen{max-width:370px}.float-tag{right:0;bottom:5px}.stats-grid{grid-template-columns:repeat(2,1fr);row-gap:18px;padding:22px 0}.stat:nth-child(2){border-right:0}.stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--line);padding-top:18px}section{padding:58px 0}.course-grid{gap:12px}.course-card{padding:18px}.course-card h3{font-size:17px}.course-card p{font-size:13px}.about-grid{grid-template-columns:1fr}.about-art{min-height:300px}.admission{padding-bottom:58px}.admission-box{padding:28px;align-items:flex-start;flex-direction:column}.contact-grid{grid-template-columns:1fr}.contact-info,.contact-form{padding:24px}}
+@media(max-width:440px){.brand strong{font-size:14px}.brand small{font-size:11px}.logo{width:42px;height:42px}.hero-actions .btn{width:100%}.course-grid{grid-template-columns:1fr}.course-card{padding:21px}.features{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.footer-row{justify-content:center;text-align:center}.footer-links{justify-content:center;flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container"><span>📍 কেশবপুর, যশোর</span><span>💻 দক্ষতা শিখুন • নিজের ভবিষ্যৎ গড়ুন</span></div></div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#home" aria-label="হোম">
+      <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2 2-2 2M12 13h4"/></svg></span>
+      <span><strong>ক্যাম্পাস কম্পিউটার</strong><small>প্রশিক্ষণ কেন্দ্র • কেশবপুর</small></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="মেনু খুলুন" aria-expanded="false">☰</button>
+    <nav class="navlinks" id="navLinks">
+      <a href="#home">হোম</a><a href="#courses">কোর্সসমূহ</a><a href="#about">আমাদের সম্পর্কে</a><a href="#admission">ভর্তি</a><a href="#contact">যোগাযোগ</a>
+      <a class="btn" href="#contact">ভর্তির তথ্য নিন ↗</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><i></i> আপনার ডিজিটাল দক্ষতার যাত্রা শুরু হোক</span>
+      <h1>শিখুন কম্পিউটার,<br><em>গড়ুন আগামীর ক্যারিয়ার</em></h1>
+      <p>ক্যাম্পাস কম্পিউটার প্রশিক্ষণ কেন্দ্র, কেশবপুরে হাতে-কলমে কম্পিউটার শিক্ষা ও ডিজিটাল দক্ষতা অর্জনের পথে এগিয়ে আসুন। নতুনদের জন্যও শেখা শুরু করা সহজ।</p>
+      <div class="hero-actions"><a class="btn light" href="#courses">কোর্সগুলো দেখুন <span>→</span></a><a class="btn ghost" href="#contact">যোগাযোগ করুন</a></div>
+      <div class="hero-note">✓ <span><b>ব্যবহারিক শিক্ষায় গুরুত্ব</b><br>শেখার পাশাপাশি অনুশীলনের সুযোগ</span></div>
+    </div>
+    <div class="visual" aria-label="কম্পিউটার প্রশিক্ষণের ইলাস্ট্রেশন">
+      <div class="screen"><div class="screen-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="screen-body">
+        <div class="screen-title">আপনার শেখার ড্যাশবোর্ড</div><div class="screen-sub">আজই নতুন কিছু শেখা শুরু করুন</div>
+        <div class="mock-course"><div class="mock-icon">⌨️</div><div style="flex:1"><strong>কম্পিউটার বেসিক</strong><small>প্রাথমিক দক্ষতা</small><div class="progress"><span style="width:72%"></span></div></div></div>
+        <div class="mock-course"><div class="mock-icon">📊</div><div style="flex:1"><strong>অফিস অ্যাপ্লিকেশন</strong><small>Word, Excel, PowerPoint</small><div class="progress"><span style="width:48%"></span></div></div></div>
+        <div class="mock-course"><div class="mock-icon">🎨</div><div style="flex:1"><strong>গ্রাফিক ডিজাইন</strong><small>সৃজনশীল ডিজিটাল কাজ</small><div class="progress"><span style="width:35%"></span></div></div></div>
+      </div></div>
+      <div class="float-tag">🎓 দক্ষতা হোক শক্তি<span>শিখুন • অনুশীলন করুন • এগিয়ে যান</span></div>
+    </div>
+  </div>
+</section>
+<div class="stats"><div class="container stats-grid">
+  <div class="stat"><strong>০১</strong><span>দক্ষতা শেখার প্রথম ধাপ</span></div>
+  <div class="stat"><strong>০২</strong><span>শেখা ও নিয়মিত অনুশীলন</span></div>
+  <div class="stat"><strong>০৩</strong><span>ডিজিটাল জ্ঞানের বিকাশ</span></div>
+  <div class="stat"><strong>∞</strong><span>শেখার নতুন সম্ভাবনা</span></div>
+</div></div>
+<section class="courses" id="courses">
+  <div class="container">
+    <div class="section-head"><span class="kicker">আমাদের প্রশিক্ষণ</span><h2>আপনার প্রয়োজনের উপযোগী কোর্স</h2><p>প্রাথমিক কম্পিউটার ব্যবহার থেকে সৃজনশীল ডিজাইন—নিজের আগ্রহ ও লক্ষ্য অনুযায়ী প্রশিক্ষণ বেছে নিন। কোর্সের প্রাপ্যতা ও বিস্তারিত জানতে যোগাযোগ করুন।</p></div>
+    <div class="course-grid">
+      <article class="course-card"><div class="course-icon">💻</div><h3>কম্পিউটার বেসিক</h3><p>কম্পিউটার পরিচিতি, Windows, ফাইল-ফোল্ডার ব্যবস্থাপনা ও দৈনন্দিন ব্যবহার শেখা।</p><a class="course-link" href="#contact">কোর্স সম্পর্কে জানুন <span>→</span></a></article>
+      <article class="course-card"><div class="course-icon">📊</div><h3>অফিস অ্যাপ্লিকেশন</h3><p>Microsoft Word, Excel ও PowerPoint-এর ব্যবহারিক কাজ এবং ডকুমেন্ট তৈরি।</p><a class="course-link" href="#contact">কোর্স সম্পর্কে জানুন <span>→</span></a></article>
+      <article class="course-card"><div class="course-icon">⌨️</div><h3>বাংলা ও ইংরেজি টাইপিং</h3><p>কিবোর্ড পরিচিতি, টাইপিং অনুশীলন এবং বাংলা-ইংরেজি লেখার দক্ষতা উন্নয়ন।</p><a class="course-link" href="#contact">কোর্স সম্পর্কে জানুন <span>→</span></a></article>
+      <article class="course-card"><div class="course-icon">🎨</div><h3>গ্রাফিক ডিজাইন</h3><p>পোস্টার, ব্যানার, লোগো ও বিভিন্ন ডিজিটাল ডিজাইনের প্রাথমিক ধারণা ও অনুশীলন।</p><a class="course-link" href="#contact">কোর্স সম্পর্কে জানুন <span>→</span></a></article>
+      <article class="course-card"><div class="course-icon">🌐</div><h3>ইন্টারনেট ও অনলাইন কাজ</h3><p>ওয়েব ব্রাউজিং, ই-মেইল, অনলাইন ফর্ম এবং নিরাপদ ইন্টারনেট ব্যবহারের নিয়ম।</p><a class="course-link" href="#contact">কোর্স সম্পর্কে জানুন <span>→</span></a></article>
+      <article class="course-card"><div class="course-icon">🧩</div><h3>ওয়েব ডিজাইনের পরিচিতি</h3><p>HTML ও CSS-এর প্রাথমিক ধারণা নিয়ে ওয়েবপেজ তৈরির প্রথম ধাপ শেখা।</p><a class="course-link" href="#contact">কোর্স সম্পর্কে জানুন <span>→</span></a></article>
+    </div>
+  </div>
+</section>
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-art"><div class="art-chip one">🖥️ হাতে-কলমে শিক্ষা</div><div><div class="big-computer"><div class="big-screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8l2 2-2 2M12 12h5"/></svg></div></div><div class="computer-neck"></div><div class="computer-base"></div></div><div class="art-chip two">✨ দক্ষতা • আত্মবিশ্বাস</div></div>
+    <div class="about-copy"><span class="kicker">আমাদের সম্পর্কে</span><h2>প্রযুক্তি শেখার সহজ ও কার্যকর পথ</h2><p>ক্যাম্পাস কম্পিউটার প্রশিক্ষণ কেন্দ্র, কেশবপুরের এই ওয়েবসাইটটি শিক্ষার্থী ও আগ্রহীদের প্রশিক্ষণ কোর্স সম্পর্কে প্রাথমিক ধারণা দেওয়ার জন্য তৈরি। কম্পিউটার ব্যবহারের ভিত্তি মজবুত করা এবং বাস্তব কাজের উপযোগী দক্ষতা শেখাই আমাদের ওয়েবসাইটের মূল বার্তা।</p><div class="features"><div class="feature"><span class="check">✓</span><span>শুরু থেকে শেখার সুযোগ</span></div><div class="feature"><span class="check">✓</span><span>ব্যবহারিক অনুশীলনে গুরুত্ব</span></div><div class="feature"><span class="check">✓</span><span>বিভিন্ন দক্ষতাভিত্তিক বিষয়</span></div><div class="feature"><span class="check">✓</span><span>শেখার বিষয়ে পরামর্শ</span></div></div><a class="btn" href="#contact">আমাদের সঙ্গে কথা বলুন ↗</a></div>
+  </div>
+</section>
+<section class="admission" id="admission"><div class="container"><div class="admission-box"><div><h2>নতুন কিছু শেখার প্রস্তুতি আছে?</h2><p>কোর্স, ভর্তি, ক্লাসের সময় ও ফি সম্পর্কে বিস্তারিত জানতে যোগাযোগ করুন।</p></div><a class="btn" href="#contact">ভর্তির তথ্য জানতে →</a></div></div></section>
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head"><span class="kicker">যোগাযোগ</span><h2>আপনার প্রশ্ন আমাদের জানান</h2><p>কোর্স ও ভর্তি-সংক্রান্ত তথ্য জানতে নিচের ফর্মটি পূরণ করুন। প্রকাশের আগে প্রতিষ্ঠানের সঠিক যোগাযোগের তথ্য যোগ করুন।</p></div>
+    <div class="contact-grid">
+      <div class="contact-info"><h3>যোগাযোগের তথ্য</h3><p>ক্যাম্পাস কম্পিউটার প্রশিক্ষণ কেন্দ্র, কেশবপুর</p>
+        <div class="contact-line"><div class="contact-symbol">📍</div><div><strong>ঠিকানা</strong><small>কেশবপুর, যশোর, বাংলাদেশ<br>(প্রতিষ্ঠানের পূর্ণ ঠিকানা যোগ করুন)</small></div></div>
+        <div class="contact-line"><div class="contact-symbol">📞</div><div><strong>ফোন</strong><small>এখানে প্রতিষ্ঠানের ফোন নম্বর যোগ করুন</small></div></div>
+        <div class="contact-line"><div class="contact-symbol">🕘</div><div><strong>ক্লাসের সময়</strong><small>এখানে ক্লাসের সময়সূচি যোগ করুন</small></div></div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <h3>তথ্য জানতে ফর্ম পূরণ করুন</h3><p>এটি একটি নমুনা ফর্ম। কার্যকরভাবে বার্তা পাঠাতে ইমেইল/সার্ভার সংযোগ প্রয়োজন।</p>
+        <div class="form-grid">
+          <div class="field"><label for="name">আপনার নাম</label><input id="name" name="name" required placeholder="নাম লিখুন"></div>
+          <div class="field"><label for="phone">মোবাইল নম্বর</label><input id="phone" name="phone" required inputmode="tel" placeholder="01XXXXXXXXX"></div>
+          <div class="field full"><label for="course">যে কোর্সে আগ্রহী</label><select id="course" name="course" required><option value="">কোর্স নির্বাচন করুন</option><option>কম্পিউটার বেসিক</option><option>অফিস অ্যাপ্লিকেশন</option><option>বাংলা ও ইংরেজি টাইপিং</option><option>গ্রাফিক ডিজাইন</option><option>ইন্টারনেট ও অনলাইন কাজ</option><option>ওয়েব ডিজাইন</option><option>অন্যান্য</option></select></div>
+          <div class="field full"><label for="message">আপনার বার্তা (ঐচ্ছিক)</label><textarea id="message" name="message" placeholder="আপনার প্রশ্ন লিখুন..."></textarea></div>
+          <div class="field full"><button class="btn" type="submit">তথ্য জমা দিন ↗</button></div>
+        </div><div class="form-note">নোট: ফর্মটি বর্তমানে ডেমো মোডে আছে; তথ্য কোথাও পাঠানো হবে না।</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="container footer-row"><div><div class="footer-brand">ক্যাম্পাস কম্পিউটার প্রশিক্ষণ কেন্দ্র</div><div class="footer-small">কেশবপুর, যশোর • শেখা হোক ভবিষ্যৎ গড়ার শক্তি</div></div><div class="footer-links"><a href="#home">হোম</a><a href="#courses">কোর্সসমূহ</a><a href="#contact">যোগাযোগ</a></div><div class="footer-small">© <span id="year"></span> ক্যাম্পাস কম্পিউটার</div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const menuToggle=document.getElementById('menuToggle');
+const navLinks=document.getElementById('navLinks');
+menuToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuToggle.setAttribute('aria-expanded',String(open));menuToggle.textContent=open?'✕':'☰';});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.textContent='☰';}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const form=document.getElementById('contactForm'),toast=document.getElementById('toast');
+form.addEventListener('submit',e=>{e.preventDefault();toast.textContent='ধন্যবাদ! এটি ডেমো ফর্ম—আপনার তথ্য পাঠানো হয়নি। প্রকাশের আগে ফর্মের সঙ্গে ইমেইল বা সার্ভার সংযোগ করুন।';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),5000);form.reset();});
+</script>
+</body>
+</html>
